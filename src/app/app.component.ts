@@ -6,10 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  lenght = 0;
   useLetters = false;
   useNumbers = false;
   useSymbols = false;
   password = '';
+
+  onChangeLenght(value: string) {
+    const parsedValue = parseInt(value);
+
+    if (!isNaN(parsedValue)) {
+      this.lenght = parsedValue;
+    }
+  }
 
   onChangeUseLetters() {
     this.useLetters = !this.useLetters;
