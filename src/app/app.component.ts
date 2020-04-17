@@ -33,9 +33,32 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    console.log('Use Letters : ', this.useLetters);
-    console.log('Use Numbers : ', this.useNumbers);
-    console.log('Use Symbols : ', this.useSymbols);
-    this.password = 'MY PASSWORD';
+    const letters = 'abcdefjhigklmnpqrstuvwxyz';
+    const numbers = '1234567890';
+    const symbols = '!@#$%^&*()_+-';
+
+    let allowedChars = '';
+
+    if (this.useLetters) {
+      allowedChars += letters;
+    }
+
+    if (this.useNumbers) {
+      allowedChars += numbers;
+    }
+
+    if (this.useSymbols) {
+      allowedChars += symbols;
+    }
+
+    console.log(allowedChars);
+
+    let generatedPassword = '';
+    for (let i = 0; i < this.lenght; i++) {
+      const index = Math.floor(Math.random() * allowedChars.length);
+      generatedPassword += allowedChars[index];
+    }
+
+    this.password = generatedPassword;
   }
 }
