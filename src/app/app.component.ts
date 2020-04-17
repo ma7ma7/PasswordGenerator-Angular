@@ -6,13 +6,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  useLetters = false;
+  useNumbers = false;
+  useSymbols = false;
   password = '';
 
-  onButtonClick() {
-    this.password = 'MY PASSWORD';
+  onChangeUseLetters() {
+    this.useLetters = !this.useLetters;
   }
 
-  getPassword() {
-    return this.password;
+  onChangeUseNumbers() {
+    this.useNumbers = !this.useNumbers;
+  }
+
+  onChangeUseSymbols() {
+    this.useSymbols = !this.useSymbols;
+  }
+
+  onButtonClick() {
+    console.log('Use Letters : ', this.useLetters);
+    console.log('Use Numbers : ', this.useNumbers);
+    console.log('Use Symbols : ', this.useSymbols);
+    this.password = 'MY PASSWORD';
   }
 }
